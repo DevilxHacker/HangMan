@@ -1,17 +1,21 @@
-import TextInputFormContainer from "./Component/TextInputForm/TextInputFormContainer";
-
+import { Route, Routes } from "react-router-dom";
+import Start from "./Component/Pages/Start";
+import Play from "./Component/Pages/Play";
+import Home from "./Component/Pages/home";
 
 
 function App() {
-  return <>
-   
-      <h1 className="p-4 my-0 text-6xl font-medium text-center text-gray-200 bg-green-400">
-        Welcome to HangMan
-      </h1>
-   <TextInputFormContainer onSubmit={(value) => console.log("Value coming from the hidden form is", value)} />
+  return (
+    <>
+      <Routes>
+        <Route path="/play" element={<Play />} />
+        <Route path="/start" element={<Start />} />
+        <Route path="/" element={<Home />} />
+        <Route path="*" element={<div> not found </div>} />
+      </Routes>
 
-  </>
-    
-
+      
+    </>
+  );
 }
 export default App;
